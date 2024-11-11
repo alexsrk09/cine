@@ -6,31 +6,30 @@ arrayAsientos =[
     "21","22","23","24","25",
 ]
 
-let pinon = document.querySelector('#btnsala')
-console.log("pinon")
-pinon.addEventListener('click',()=>{
+let botones = document.querySelectorAll('#btnsala')
+console.log("botones")
 
-    alert("HOLAAAAAAAAA")
+
+
+botones.forEach(pinon => {
+    pinon.addEventListener('click',()=>{
+
+    /* alert("HOLAAAAAAAAA") */
     
-    arrayAsientos.forEach(element => {
-        
-        
-
+    /* arrayAsientos.forEach(element => {
         console.log(element)
-    });
+    }); */
     
     let asientos = document.createElement('table')
     
     let fila = document.createElement('tr')
     fila.style.backgroundColor = 'grey'
-    fila.textContent =  
+    fila.textContent =  arrayAsientos
         asientos.appendChild(fila)
 
 
         document.body.appendChild(asientos)
     
-   /*  for (let index = 0; index < arrayAsientos.length; index++) {
-        const element = array[index];
-        
-    } */
 })
+})
+
