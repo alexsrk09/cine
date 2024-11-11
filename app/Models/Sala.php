@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Sala extends Model
 {
     use HasFactory;
+
+    protected $trable='sala';
+
+    protected $primary='id';
+
+    protected $fillable = [
+        'nombre'
+    ];
 }
