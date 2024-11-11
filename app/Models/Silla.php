@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Silla extends Model
 {
     use HasFactory;
-
-    protected $trable='silla';
+    protected $table='silla';
 
     protected $primary='id';
 

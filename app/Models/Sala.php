@@ -9,7 +9,7 @@ class Sala extends Model
 {
     use HasFactory;
 
-    protected $trable='sala';
+    protected $table='sala';
 
     protected $primary='id';
 
