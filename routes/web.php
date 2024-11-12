@@ -25,3 +25,6 @@ Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
 Route::post('prueba',function(){
     return "prueba";
 });
+Route::get('/prueba', function () {
+    return view('/prueba');
+});
