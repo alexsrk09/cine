@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SalaController;
+use App\Http\Controllers\SillaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+// route create sala with string name via request
+Route::post('/createsala', [SalaController::class, 'create']);
+Route::get('/getallsalas', [SalaController::class, 'getAll']);
+Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
+Route::post('prueba',function(){
+    return "prueba";
 });
