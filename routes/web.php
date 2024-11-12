@@ -22,9 +22,6 @@ Route::get('/', function () {
 Route::post('/createsala', [SalaController::class, 'create']);
 Route::get('/getallsalas', [SalaController::class, 'getAll']);
 Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
-Route::post('prueba',function(){
-    return "prueba";
-});
 Route::get('/prueba', function () {
     return view('/prueba');
 });
