@@ -21,6 +21,7 @@ Route::get('/', function () {
 // route create sala with string name via request
 Route::post('/createsala', [SalaController::class, 'create']);
 Route::post('/createsilla', [SillaController::class, 'create']);
+Route::post('/updatesilla', [SillaController::class, 'update']);
 Route::get('/getallsalas', [SalaController::class, 'getAll']);
 Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
 Route::get('/prueba', function () {return view('/prueba');});

@@ -18,4 +18,10 @@ class SillaController extends Controller
         $data = Silla::where('sala_id', $id)->get();
         return $data;
     }
+    public function update(Request $request){
+        $silla = Silla::find($request->id);
+        $silla->ocupada = !$silla->ocupada;
+        $silla->save();
+        return $silla;
+    }
 }
