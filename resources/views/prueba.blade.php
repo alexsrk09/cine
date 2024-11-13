@@ -11,34 +11,43 @@
         <h1>Cine Medac</h1>
         <h2>Aquí se encuentra la reserva de asientos</h2>
 
-        <!-- Primera fila de botones de salas -->
-        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+        <!-- <button id="crearSala">Crear sala</button> -->
+
+        
+
+        <!-- <div id="asientos" class="mt-3">
+            <h3>Ver disponibilidad sala 1-5</h3>
+        </div> -->
+        
+        <!-- <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 1</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 2</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 3</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 4</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 5</button>
-        </div>
+        </div> -->
 
-        <div id="" class=""></div>
+        <!-- <div id="tabla" class="text-success bg-primary text-white font-weight-bold display-4 p-4 rounded-lg shadow w-100 w-md-50 text-center"></div> -->
+        <section id="salas">
+
+        </section>
         
         
-        <div id="asientos" class="mt-3">
-            Ver disponibilidad sala 1-5
-        </div>
 
-        <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
+        <!-- <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 6</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 7</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 8</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 9</button>
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 10</button>
-        </div>
-        
+        </div> -->
+
        
-        <div id="asientos-2" class="mt-3">
-            Ver disponibilidad sala 6-10
-        </div>
+        <!-- <div id="asientos-2" class="mt-3">
+            <h3>Ver disponibilidad sala 6-10</h3>
+        </div> -->
+
+        <!-- <div id="tabla" class="text-success bg-primary text-white font-weight-bold display-4 p-4 rounded-lg shadow w-100 w-md-50 text-center"></div> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
