@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App;
 use App\Models\Sala;
+use App\Models\Silla;
 use Illuminate\Http\Request;
 
 class SalaController extends Controller
@@ -18,8 +20,12 @@ class SalaController extends Controller
     public function getAll(){
         return Sala::all();
     }
-    public function delete($id){
-        $sala = Sala::find($id);
+    public function delete(Request $request){
+        $sala = Sala::find($request->id);
+        $sillas = App\Models\Silla::where('sala_id', $request->id)->get();
+        foreach ($sillas as $silla) {
+            $silla->delete();
+        }
         $sala->delete();
         return $sala;
     }
