@@ -24,4 +24,9 @@ class SillaController extends Controller
         $silla->save();
         return $silla;
     }
+    public function delete(Request $request){
+        $silla = Silla::find($request->id);
+        $silla->delete();
+        return $silla;
+    }
 }
