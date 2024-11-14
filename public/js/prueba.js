@@ -6,9 +6,9 @@ arrayAsientos =[
     "21","22","23","24","25",
 ]
 
-arraySalas =["SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7"]
+arraySalas =["SALA 1","SALA 2","SALA 3","SALA 4","SALA 5","SALA 6","SALA 7","SALA 8","SALA 9","SALA 10"]
 let salas = document.querySelector('#salas')
-let crearSala = document.querySelector('#crearSala')
+// let crearSala = document.querySelector('#crearSala')
 
 let contador =0
 
@@ -23,12 +23,14 @@ let contador =0
             // console.log(boton.id)
             boton.textContent= sala
             contador++
-            currentdiv.appendChild(boton).className= "btn btn-primary rounded-pill"
-
+            currentdiv.appendChild(boton).className= "btn btn-light border border-3 border-primary text-dark p-3 rounded-pill fw-bold m-3"
+            
             if(contador==5){
                 // creamos un nuevo div vacio (donde iran las sillas)
                 let div = document.createElement('div')
                 div.id = 'sillas'
+                //El row genera las filas
+                div.className = 'row rounded-pill text-danger'
                 currentdiv.appendChild(div)
                 // creamos la nueva fila
                 currentdiv= document.createElement('div')
@@ -41,6 +43,7 @@ let contador =0
             // creamos un nuevo div vacio (donde iran las sillas)
             let div = document.createElement('div')
             div.id = 'sillas'
+            div.className = 'row rounded-pill text-danger'
             currentdiv.appendChild(div)
             // creamos la nueva fila
             currentdiv= document.createElement('div')
@@ -59,14 +62,23 @@ botones.forEach(boton => {
             borrado.textContent= ""
         })
         let caja = boton.parentNode.querySelector('#sillas')
-        caja.textContent = arrayAsientos
+        //Creamos un boton para que los asientos se puedan reservar u ocupar y con boostrap al usar col-2 crea columnas
+        arrayAsientos.forEach(element => {
+            // caja
+            let botonAsiento = document.createElement('button')
+            
+            botonAsiento.id = 'botonAsiento' + element
+            botonAsiento.className="col-2 rounded-pill m-3 fw-bold "
+            botonAsiento.textContent=element
+            caja.appendChild(botonAsiento)
+            botonAsiento.src = "./img/logo.jpg"    
+        });
         
     })
 });
 
-
 // console.log("botones")
-// botones.forEach(pinon => {
+// botones.forEach(pinon => {kkkknnnnnnnnnnn
 //     pinon.addEventListener('click',()=>{
 
 //     /* alert("HOLAAAAAAAAA") */
@@ -81,7 +93,6 @@ botones.forEach(boton => {
 //     tablaHTML.style.backgroundColor = 'blue'
 //     tablaHTML.textContent =  arrayAsientos
 //         asientos.appendChild(tablaHTML)
-
 
 //         document.body.appendChild(asientos)
     
