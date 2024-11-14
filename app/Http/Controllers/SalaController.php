@@ -21,6 +21,10 @@ class SalaController extends Controller
         return Sala::all();
     }
     public function delete(Request $request){
+        /////////////////////////////////////////////////////////////////////////
+        // comprobar si $request->id es un numero y existe en la base de datos
+        /////////////////////////////////////////////////////////////////////////
+
         $sala = Sala::find($request->id);
         $sillas = App\Models\Silla::where('sala_id', $request->id)->get();
         foreach ($sillas as $silla) {
