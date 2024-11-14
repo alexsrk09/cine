@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             Sala::factory()->create([
                 'id' => $i,
                 'nombre' => 'sala ' . $i,
+                'descripcion' => 'descripcion de la sala ' . $i,
             ]);
             // create 5 sillas for each sala
             for ($j = 1; $j <= env('ASIENTOS'); $j++) {
