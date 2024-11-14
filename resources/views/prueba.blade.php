@@ -8,8 +8,8 @@
 </head>
 <body>
     <div class="container text-center mt-4">
-        <h1>Cine Medac</h1>
-        <h2>Aquí se encuentra la reserva de asientos</h2>
+        <h1 class="fw-bold ">Cine Medac</h1>
+        <h3>Aquí se encuentra la reserva de asientos de nuestra sala</h3>
 
         <!-- <button id="crearSala">Crear sala</button> -->
 

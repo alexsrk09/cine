@@ -18,6 +18,7 @@ use App\Http\Controllers\SillaController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 // route create sala with string name via request
 Route::post('/createsala', [SalaController::class, 'create']);
 Route::post('/createsilla', [SillaController::class, 'create']);
@@ -27,4 +28,5 @@ Route::post('/deletesilla', [SillaController::class, 'delete']);
 Route::get('/getallsalas', [SalaController::class, 'getAll']);
 Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
 Route::get('/prueba', function () {return view('/prueba');});
+Route::get('/prueba2', function () {return view('/prueba2');});
 // Route::get('/token', function () {return csrf_token(); });
