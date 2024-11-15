@@ -14,6 +14,7 @@ class Sala extends Model
     protected $primary='id';
 
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'descripcion'
     ];
 }
