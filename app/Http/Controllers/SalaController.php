@@ -29,7 +29,7 @@ class SalaController extends Controller
 
         $validator = Validator::make($data,
         [
-            'id_sala' => 'required|integer|max:100',
+            'id_sala' => 'required|integer',
         ],
         []);
 
