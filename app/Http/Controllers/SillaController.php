@@ -16,7 +16,7 @@ class SillaController extends Controller
 
         $validator = Validator::make($data,
         [
-            'id_silla' => 'required|integer|max:100',
+            'id_silla' => 'required|integer',
         ],
         []);
 
@@ -39,7 +39,7 @@ class SillaController extends Controller
 
         $validator = Validator::make($data,
         [
-            'id_silla' => 'required|integer|max:100',
+            'id_silla' => 'required|integer',
         ],
         []);
 
@@ -58,7 +58,7 @@ class SillaController extends Controller
 
         $validator = Validator::make($data,
         [
-            'id_silla' => 'required|integer|max:100',
+            'id_silla' => 'required|integer',
         ],
         []);
 
@@ -79,7 +79,7 @@ class SillaController extends Controller
 
         $validator = Validator::make($data,
         [
-            'id_silla' => 'required|integer|max:100',
+            'id_silla' => 'required|integer',
         ],
         []);
 
