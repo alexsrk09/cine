@@ -33,11 +33,11 @@
         </div> -->
 
         <!-- <div id="tabla" class="text-success bg-primary text-white font-weight-bold display-4 p-4 rounded-lg shadow w-100 w-md-50 text-center"></div> -->
-        <section id="salas">
+        <section id="salas" >
 
         </section>
         
-        
+        <div id="conteiner-asientos"></div>
 
         <!-- <div class="d-flex justify-content-center flex-wrap gap-3 mt-4">
             <button class="btn btn-primary rounded-pill" id="btnsala">Sala 6</button>
