@@ -1,30 +1,45 @@
+// Recoger los datos del json de salas
+
+// mandar header y body
+// {{csrf_token()}}
+
 const url = '/getallsalas'
 
-fetch(url)
-    .then(respuesta => respuesta.json())
-    .then(result => mostrar(result))
-    .catch(error => console.log(error))
-
-
-function mostrar(datos) {
-
-
+document-addEventListener('DOMContentLoaded', ()=>{
+    actualizar()
     const salas = document.querySelector('#salas')
-    datos.forEach(sala => {
-        const { id, nombre, created_at, updated_at } = sala
-        // console.log("ID: " + id)
-        // console.log("Nombre sala: " + nombre)
-        // console.log("Creada: " + created_at)
-        // console.log("Actualizada: " + updated_at)
-        // console.log("")
-        let salaDIV = document.createElement('div')
-        salaDIV.style.backgroundColor = 'green'
-        salaDIV.style.margin = '5px'
-        salaDIV.style.height = '30px'
-        salaDIV.textContent = nombre;
-        salas.appendChild(salaDIV)
+    salas.remove()
+    actualizar()
+    // console.log(csrf)
+})
 
-        salaDIV.addEventListener('click', () => {
+
+function actualizar() {
+
+    fetch(url)
+    .then(respuesta => respuesta.json())
+        .then(result => mostrarDatos(result))
+        .catch(error => console.log(error))
+    }
+
+    function mostrarDatos(datos) {
+
+        datos.forEach(sala => {
+            const { id, nombre, created_at, updated_at } = sala
+            // console.log("ID: " + id)
+            // console.log("Nombre sala: " + nombre)
+            // console.log("Creada: " + created_at)
+            // console.log("Actualizada: " + updated_at)
+            // console.log("")
+
+        let saladiv = document.createElement('div')
+        saladiv.style.backgroundColor = 'green'
+        saladiv.style.margin = '5px'
+        saladiv.style.height = '30px'
+        saladiv.textContent = nombre
+        salas.appendChild(saladiv)
+
+        saladiv.addEventListener('click', () => {
 
             fetch('/getsillas/' + id)
                 .then(respuesta => respuesta.json())
@@ -35,9 +50,9 @@ function mostrar(datos) {
 }
 
 function mostrarSillas(datos) {
-    const pelisDIV = document.querySelector('#pelis')
+    const pelisdiv = document.querySelector('#pelis')
 
-    pelisDIV.textContent = ""
+    pelisdiv.textContent = ""
     let contador = 0
 
     datos.forEach(silla => {
@@ -45,11 +60,9 @@ function mostrarSillas(datos) {
         const {id, ocupada} = silla;
         let cuadrado = document.createElement('div')
         cuadrado.textContent = contador
-        pelisDIV.appendChild(cuadrado)
+        pelisdiv.appendChild(cuadrado)
     })
 }
 
 
-// mandar header y body
-//
-// {{csrf_token()}}
+
