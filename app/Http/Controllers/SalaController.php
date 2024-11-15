@@ -12,9 +12,9 @@ class SalaController extends Controller
     // crud Model Sala
     public function create()
     {
-        echo "create";
         $sala = new Sala();
         $sala->nombre = $_POST['nombre'];
+        $sala->descripcion = $_POST['descripcion'];
         $sala->save();
         return $sala;
     }
