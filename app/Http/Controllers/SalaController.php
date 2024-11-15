@@ -5,6 +5,7 @@ use App;
 use App\Models\Sala;
 use App\Models\Silla;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SalaController extends Controller
 {
@@ -21,13 +22,29 @@ class SalaController extends Controller
         return Sala::all();
     }
     public function delete(Request $request){
-        $sala = Sala::find($request->id);
-        $sillas = App\Models\Silla::where('sala_id', $request->id)->get();
-        foreach ($sillas as $silla) {
-            $silla->delete();
+
+        $data =[
+            "id_sala" => $request->id,
+        ];
+
+        $validator = Validator::make($data,
+        [
+            'id_sala' => 'required|integer|max:100',
+        ],
+        []);
+
+        if($validator -> passes() && $request -> id != -1){
+            $sala = Sala::find($request->id);
+            $sillas = App\Models\Silla::where('sala_id', $request->id)->get();
+            foreach ($sillas as $silla) {
+                $silla->delete();
+            }
+            $sala->delete();
+            return $sala;
+        }else{
+            return "La Sala no existe";
         }
-        $sala->delete();
-        return $sala;
+
     }
     // Route::get('getsillas/{id}', [SalaController::class, 'getSillas']);
 }
