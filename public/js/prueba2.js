@@ -6,9 +6,9 @@
 const url = '/getallsalas'
 
 document-addEventListener('DOMContentLoaded', ()=>{
-    actualizar()
     const salas = document.querySelector('#salas')
-    salas.remove()
+    actualizar()
+    salas.removeChild()
     actualizar()
     // console.log(csrf)
 })
@@ -61,6 +61,9 @@ function mostrarSillas(datos) {
         let cuadrado = document.createElement('div')
         cuadrado.textContent = contador
         pelisdiv.appendChild(cuadrado)
+        silla.addEventListener('click', () => {
+            console.log(silla)
+        })
     })
 }
 
