@@ -7,8 +7,10 @@ const url = '/getallsalas'
 
 document-addEventListener('DOMContentLoaded', ()=>{
     const salas = document.querySelector('#salas')
-    actualizar()
-    salas.removeChild()
+    // if salas has any child, remove it
+    while (salas.firstChild) {
+        salas.removeChild(salas.firstChild)
+    }
     actualizar()
     // console.log(csrf)
 })
@@ -61,11 +63,19 @@ function mostrarSillas(datos) {
         let cuadrado = document.createElement('div')
         cuadrado.textContent = contador
         pelisdiv.appendChild(cuadrado)
-        silla.addEventListener('click', () => {
-            console.log(silla)
+        cuadrado.addEventListener('click', () => {
+            // console.log('click en silla ' + id)
+            // route: /updatesilla
+            fetch('/updatesilla', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrf
+                },
+                body: JSON.stringify({
+                    id: id
+                })
+            })
         })
     })
 }
-
-
-
