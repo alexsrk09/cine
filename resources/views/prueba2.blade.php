@@ -35,6 +35,9 @@
 
     <div id="pelis"></div>
 
+    <button id="crear_sala">Crear sala  </button>
+
+    <script> let csrf = '{{csrf_token()}}'</script>
 
     <script src="js/prueba2.js"></script>
 
