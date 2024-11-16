@@ -7,18 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         .height{
-            height: 75%;
-            overflow: scroll;
-            
+            height: 75vh;
+            overflow: scroll;   
         }
         .width{
-            width: 50%;
-            margin-right: 25%;
+            height: 80vh;
+            width: 48%;
+            margin-right: 28%;
+            margin-top: 40px;
         }
         .width2{
-            height: 75%;
+            height: 69vh;
             margin-left: 80%;
             overflow: scroll;
+            width: 28%;
         }
         .text-wrap{
             overflow-wrap: break-word
@@ -45,6 +47,7 @@
         
         <div data-bs-spy="scroll" class=" d-flex justify-content-center flex-wrap gap-3 mt-4 w-25 border border-5 row position-absolute top-50 start-0 translate-middle-y height">
             <div>
+            <button class="col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3" id="btnsala">Crear Sala</button>
             <button class="col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3" id="btnsala">Sala 1</button>
             <button class="col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3" id="btnsala">Sala 2</button>
             <button class="col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3" id="btnsala">Sala 3</button>
@@ -68,17 +71,16 @@
             </div>
             
         </div>
-
-        
         
         <div class="border border-5 col-3 width position-absolute top-50 end-0 translate-middle-y">
-            <h1>BRO</h1>        
+            <h1>SPIDERMAN 3</h1>        
             <h2>Elección de asientos</h2>
-            <h3>1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10</h3>
+            <button class="col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3" id="btnsala">Crear Asiento</button>
+            <h3>1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20</h3>
         </div>
 
-        <div class="border border-5 width2 text-wrap">
-            <h2>Info de Spiderman</h2>
+        <div class="border border-5 width2 text-wrap position-absolute top-50 end-0 translate-middle-y ">
+            <h2>Info de Spiderman 3</h2>
             <div>
             El superhéroe de ficción Spider-Man, creado por Stan Lee y Steve Ditko y que aparece en los cómics de Marvel Comics, ha aparecido como personaje principal en múltiples películas teatrales y hechas para televisión.
 
@@ -87,7 +89,7 @@
             En febrero de 2015, Disney, Marvel Studios y Sony hicieron un trato para compartir los derechos cinematográficos de Spider-Man, lo que llevó a una nueva versión de Spider-Man que se introdujo e integró en el Universo cinematográfico de Marvel. El acuerdo permitió a Sony Pictures continuar siendo la propietaria, financiar, distribuir y tener el control creativo final de las películas en solitario de Spider-Man, y Walt Disney Studios Motion Pictures distribuyó las películas con sus otras apariciones. Tom Holland interpreta esta versión de Spider-Man y ha aparecido en seis películas hasta la fecha, desde Capitán América: Civil War (2016) hasta Spider-Man: No Way Home (2021). En septiembre de 2019, luego de un breve desacuerdo que resultó en la rescisión del antiguo acuerdo, Disney y Sony cedieron ante las protestas de los fanáticos e hicieron un nuevo acuerdo para que la versión de Holland hiciera al menos dos apariciones más: en otra película en solitario, Spider-Man: No Way Home (2021) y otra película de equipo.
             </div>
         </div>
-       
+        
 
         <!-- <div id="tabla" class="text-success bg-primary text-white font-weight-bold display-4 p-4 rounded-lg shadow w-100 w-md-50 text-center"></div> -->
         <section id="salas" >
