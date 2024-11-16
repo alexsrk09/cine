@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 function crearSala() {
-    fetch('/createsala/', {
+    fetch("/createsala", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
