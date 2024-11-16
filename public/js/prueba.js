@@ -44,6 +44,7 @@ arraySalas = [
     "SALA 15",
 ];
 let salas = document.querySelector("#salas");
+let contenedor_asientos = document.querySelector("#conteiner-asientos");
 // let crearSala = document.querySelector('#crearSala')
 
 let contador = 0;
@@ -51,47 +52,57 @@ let contador = 0;
 // crearSala.forEach(e =>{
 //     e.addEventListener('click',()=>{
 // linea de 5 botones junto con el div donde iran las sillas
-let currentdiv = document.createElement("div");
+// let currentdiv = document.createElement("div");
+let divContenidoSala = document.createElement("div")
 
 
-salas.appendChild(currentdiv);
-salas.className = "position-absolute top-50 start-0 translate-middle-y"
+
+// salas.appendChild(currentdiv);
+salas.className = "row position-absolute top-50 start-0 translate-middle-y"
 arraySalas.forEach((sala) => {
     let boton = document.createElement("button");
     boton.id = "boton" + sala;
     // console.log(boton.id)
     boton.textContent = sala;
-    boton.className = "btn btn-light border border-3 border-primary text-dark p-3 rounded-pill fw-bold m-3"
+    boton.className = "col-3 btn btn-light border border-3 border-primary text-dark p-2 rounded-pill fw-bold m-3"
+    boton.style.width = "100px"
     contador++;
-    currentdiv.appendChild(boton);
+    salas.appendChild(boton);
+    // divContenidoSala.appendChild(salas)
 
-    if (contador == 3) {
-        // creamos un nuevo div vacio (donde iran las sillas)
+    if(contador==3){
         let div = document.createElement("div");
-        div.id = "sillas";
-        //El row genera las filas
-        div.className = "row rounded-pill text-danger";
-        currentdiv.appendChild(div);
-        // creamos la nueva fila
-        currentdiv = document.createElement("div");
-        salas.appendChild(currentdiv);
-        contador = 0;
+        salas.appendChild(div)
+        contador=0
     }
+
+    //! if (contador == 3) {
+    //!     // creamos un nuevo div vacio (donde iran las sillas)
+    //!     let div = document.createElement("div");
+    //!     div.id = "sillas";
+    //!     //El row genera las filas
+    //!     div.className = "row rounded-pill text-danger";
+    //!     currentdiv.appendChild(div);
+    //!     // creamos la nueva fila
+    //!     currentdiv = document.createElement("div");
+    //!     salas.appendChild(currentdiv);
+    //!     contador = 0;
+    //! }
 });
-if (contador != 0) {
-    // por si no llega a completar la linea cuando el contador no llega 0
-    // creamos un nuevo div vacio (donde iran las sillas)
-    let div = document.createElement("div");
-    div.id = "sillas";
-    div.className = "row rounded-pill text-danger";
-    currentdiv.appendChild(div);
-    // creamos la nueva fila
-    currentdiv = document.createElement("div");
-    salas.appendChild(currentdiv);
-    contador = 0;
-}
-//     })
-// })
+//! if (contador != 0) {
+//!     // por si no llega a completar la linea cuando el contador no llega 0
+//!     // creamos un nuevo div vacio (donde iran las sillas)
+//!     let div = document.createElement("div");
+//!     div.id = "sillas";
+//!     div.className = "row rounded-pill text-danger";
+//!     currentdiv.appendChild(div);
+//!     // creamos la nueva fila
+//!     currentdiv = document.createElement("div");
+//!     salas.appendChild(currentdiv);
+//!     contador = 0;
+//! }
+//!     })
+//! })
 
 // busca los botones donde el id contenga "boton" (id^="boton) ^= operador que contenga
 const botones = document.querySelectorAll('button[id^="boton"]');
@@ -115,6 +126,13 @@ botones.forEach((boton) => {
         });
     });
 });
+
+contenedor_asientos.className = "border border-5"
+botones.addEventListener('click',()=>{
+    contenedor_asientos.appendChild(arrayAsientos)
+})
+
+
 
 // console.log("botones")
 // botones.forEach(pinon => {kkkknnnnnnnnnnn
