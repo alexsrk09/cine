@@ -11,11 +11,11 @@
         }
         body {
             font-family: Arial, sans-serif;
+            background-image: var(--var-primary);
         }
         header {
             height: 15vh; /* Ocupa el 15% de la altura de la ventana */
             padding-top: 1%;
-            background-image: var(--var-primary);
             color: white;
         }
         header h1, header p {
@@ -33,11 +33,11 @@
         section:nth-child(1), /* primer section */
         section:nth-child(3) /* tercer section */{
             flex: 1; /* Ancho igual para las secciones laterales */
-            background-color: rgba(149, 193, 219, 0.612);
+            background-color: #e5edf1b4;
         }
         section:nth-child(2) /* tercero section */{
             flex: 2; /* Doble ancho para la sección central */
-            background-color: rgba(149, 193, 219, 0.612);
+            background-color: #95c1dbb4;
         }
         footer {
             height: 10vh; /* Ocupa el 10% de la altura */
