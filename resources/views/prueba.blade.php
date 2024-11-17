@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root{
-            --var-primary:"img/cine.webp";
+            --var-primary:url('img/cine.webp');
         }
         body {
             font-family: Arial, sans-serif;
@@ -33,11 +33,11 @@
         section:nth-child(1), /* primer section */
         section:nth-child(3) /* tercer section */{
             flex: 1; /* Ancho igual para las secciones laterales */
-            background-color: #E5EDF1;
+            background-color: rgba(149, 193, 219, 0.612);
         }
         section:nth-child(2) /* tercero section */{
             flex: 2; /* Doble ancho para la sección central */
-            background-color: #96C2DB;
+            background-color: rgba(149, 193, 219, 0.612);
         }
         footer {
             height: 10vh; /* Ocupa el 10% de la altura */
@@ -53,7 +53,7 @@
     </style>
 </head>
 <body>
-    <header class="text-center text-dark">
+    <header class="text-center text-black">
         <div class="container">
             <h1 class="fw-bold">Cine Medac</h1>
             <p>Aquí se encuentra la reserva de asientos de nuestra sala</p>
