@@ -6,49 +6,78 @@
     <title>Cine Medac</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
-        :root{
-            --var-primary:url('img/cine.webp');
+        :root {
+            --var-primary: url('img/cine.webp');
         }
+
         body {
             font-family: Arial, sans-serif;
             background-image: var(--var-primary);
         }
+
         header {
-            height: 15vh; /* Ocupa el 15% de la altura de la ventana */
+            height: 15vh;
+            /* Ocupa el 15% de la altura de la ventana */
             padding-top: 1%;
             color: white;
         }
-        header h1, header p {
+
+        header h1,
+        header p {
             margin: 0;
         }
+
         main {
             display: flex;
-            height: 75vh; /* Ocupa el 75% de la altura */
+            height: 75vh;
+            /* Ocupa el 75% de la altura */
         }
+
         section {
             padding: 15px;
             border: 3px solid var(--var-primary);
             overflow: auto;
         }
-        section:nth-child(1), /* primer section */
-        section:nth-child(3) /* tercer section */{
-            flex: 1; /* Ancho igual para las secciones laterales */
+
+        section:nth-child(1),
+        /* primer section */
+        section:nth-child(3)
+
+        /* tercer section */
+            {
+            flex: 1;
+            /* Ancho igual para las secciones laterales */
             background-color: #e5edf1b4;
         }
-        section:nth-child(2) /* tercero section */{
-            flex: 2; /* Doble ancho para la sección central */
+
+        section:nth-child(2)
+
+        /* tercero section */
+            {
+            flex: 2;
+            /* Doble ancho para la sección central */
             background-color: #95c1dbb4;
         }
+
         footer {
-            height: 10vh; /* Ocupa el 10% de la altura */
+            height: 10vh;
+            /* Ocupa el 10% de la altura */
             background-color: #E5EDF1;
             display: flex;
             align-items: center;
             padding: 0 1%;
         }
+
         .btn-custom {
             width: 100%;
             max-width: 150px;
+        }
+        #pelis button {
+            width: 10%;
+        }
+        #pelis button img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -105,65 +134,13 @@
             <h2 class="mb-3">Spiderman 3</h2>
             <p class="lead">Elección de asientos</p>
             <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
-            <div class="d-flex flex-wrap">
-                <!-- Representación de asientos -->
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
-                <button class="btn btn-outline-secondary m-1">2</button>
-                <button class="btn btn-outline-secondary m-1">3</button>
-                <button class="btn btn-outline-secondary m-1">4</button>
-                <button class="btn btn-outline-secondary m-1">1</button>
+            <div class="d-flex flex-wrap" id="pelis">
+            <button class="btn btn-outline-secondary m-1">
+                <img src="img/ocupado1.png" alt="Asiento ocupado">
+            </button>
+            <button class="btn btn-outline-secondary m-1">
+                <img src="img/libre1.png" alt="Asiento libre">
+            </button>
             </div>
         </section>
 
