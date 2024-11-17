@@ -43,17 +43,18 @@ function mostrarSalas(salas) {
 
     salas.forEach(sala => {
         const { id, nombre } = sala;
-
-        let salaDiv = document.createElement('div');
-        salaDiv.style.backgroundColor = 'green';
-        salaDiv.style.margin = '5px';
-        salaDiv.style.height = '30px';
+        // <button
+        //         class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala
+        //         1</button>
+        let salaDiv = document.createElement('button');
         salaDiv.textContent = nombre;
-
+        salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
         salasDiv.appendChild(salaDiv);
 
         salaDiv.addEventListener('click', () => {
             clickSala(id); // Llamar a la función para mostrar las sillas
+            // mostrar la descripcion de la sala
+            document.querySelector('#descripcion').textContent = sala.descripcion;
         });
     });
 }
@@ -77,10 +78,15 @@ function mostrarSillas(sillas, salaId) {
         contador++;
         const { id, ocupada } = silla;
 
-        let sillaDiv = document.createElement('div');
-        
-        if (sillaDiv.textContent != ocupada)  sillaDiv.textContent = "X";
-        else sillaDiv.textContent = contador;
+        // <button class="btn btn-outline-secondary m-1">1</button>
+        let sillaDiv = document.createElement('button');
+        sillaDiv.classList.add('btn', 'btn-outline-secondary', 'm-1');
+        if (sillaDiv.textContent != ocupada)  {
+            sillaDiv.appendChild(document.createElement('img')).src = "img/ocupado1.png";
+        }
+        else {
+            sillaDiv.appendChild(document.createElement('img')).src = "img/libre1.png";
+        }
 
         // sillaDiv.textContent = (sillaDiv.textContent == ocupada)? 'X' : contador;
 
