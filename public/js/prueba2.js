@@ -77,12 +77,22 @@ function mostrarSalas(salas) {
 
     salas.forEach(sala => {
         const { id, nombre } = sala;
-        // <button
-        //         class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala
-        //         1</button>
-        let salaDiv = document.createElement('button');
-        salaDiv.textContent = nombre;
-        salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
+        // <div class="sala-btn-group">
+        //     <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+        //     <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+        // </div>
+        let salaDiv = document.createElement('div');
+        salaDiv.classList.add('sala-btn-group');
+        let salaBtn = document.createElement('button');
+        salaBtn.textContent = nombre;
+        salaBtn.classList.add('btn', 'btn-light', 'border-3', 'border-dark', 'text-white', 'fw-bold', 'sala-btn');
+        salaDiv.appendChild(salaBtn);
+        let deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'X';
+        deleteBtn.classList.add('btn', 'btn-danger', 'border-3', 'border-danger', 'text-white', 'fw-bold', 'delete-btn');
+        salaDiv.appendChild(deleteBtn);
+        // salaDiv.textContent = nombre;
+        // salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
         salasDiv.appendChild(salaDiv);
 
         salaDiv.addEventListener('click', () => {
@@ -113,21 +123,25 @@ function mostrarSillas(sillas, salaId) {
         contador++;
         const { id, ocupada } = silla;
 
-        // <button class="btn btn-outline-secondary m-1">1</button>
+        // <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
+        //                     <img src="img/ocupado1.png" alt="Asiento ocupado">
+        //                     <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
+        //                 </button>
+        
         let sillaDiv = document.createElement('button');
-        sillaDiv.classList.add('btn', 'btn-outline-secondary', 'm-1');
-        if (sillaDiv.textContent != ocupada) {
-            sillaDiv.appendChild(document.createElement('img')).src = "img/ocupado1.png";
-        }
-        else {
-            sillaDiv.appendChild(document.createElement('img')).src = "img/libre1.png";
-        }
-
-        // sillaDiv.textContent = (sillaDiv.textContent == ocupada)? 'X' : contador;
+        sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-primary', 'm-1');
+        let img = document.createElement('img');
+        img.src = (ocupada == 1)? "img/ocupado1.png" : "img/libre1.png";
+        img.alt = (ocupada == 1)? "Asiento ocupado" : "Asiento libre";
+        sillaDiv.appendChild(img);
+        let deleteBtn = document.createElement('button');
+        deleteBtn.textContent = 'X';
+        deleteBtn.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-danger', 'text-danger', 'm-1');
+        sillaDiv.appendChild(deleteBtn);
 
         pelisDiv.appendChild(sillaDiv);
 
-        sillaDiv.addEventListener('click', () => {
+        img.addEventListener('click', () => {
             actualizarSilla(id, salaId); // Actualizar silla y refrescar vista
         });
     });
