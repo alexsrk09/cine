@@ -11,18 +11,19 @@ class SillaController extends Controller
     public function create(Request $request){
 
         $data =[
-            "id_silla" => $request->id,
+            "sala_id" => $request->sala_id,
         ];
 
         $validator = Validator::make($data,
         [
-            'id_silla' => 'required|integer',
+            'sala_id' => 'required|integer',
         ],
         []);
 
-        if($validator -> passes() && $request -> id != -1){
+        if($validator -> passes() && $request -> sala_id != -1){
             $silla = new Silla();
             $silla->sala_id = $request->sala_id;
+            $silla->ocupada = false;
             $silla->save();
             return $silla;
         }

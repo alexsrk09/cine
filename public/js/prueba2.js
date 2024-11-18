@@ -1,8 +1,8 @@
+let salaId = null
 document.addEventListener('DOMContentLoaded', () => {
     // Actualizar la lista de salas al cargar la página
-    let salaId = null
     actualizarSalas();
-    document.querySelector("#crear_sala").addEventListener('click', (e) => {
+    document.querySelector("#crearSala").addEventListener('click', (e) => {
         e.preventDefault();
         crearSala();
     });
@@ -23,21 +23,20 @@ function crearSala() {
             descripcion: prompt('Descripción de la sala:')
         })
     })
-    .then((respuesta) => {
-        console.log(respuesta)
-        respuesta.json()
-    })
-    .then((resultado ) => {
-        console.log(resultado)
-        actualizarSalas()
-    })
-    .then(() => actualizarSalas())
-    .catch(error => console.error('Error al crear la sala:', error));
+        .then((respuesta) => {
+            console.log(respuesta)
+            respuesta.json()
+        })
+        .then((resultado) => {
+            console.log(resultado)
+            actualizarSalas()
+        })
+        .then(() => actualizarSalas())
+        .catch(error => console.error('Error al crear la sala:', error));
 }
 
 // FUNCION CREAR ASIENTO
-function crearAsiento(){
-    let id_todo = '' + salaId + '' + sillaId
+function crearAsiento() {
 
     fetch('/createsilla', {
         method: 'POST',
@@ -45,14 +44,14 @@ function crearAsiento(){
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
-        body: JSON.stringify({ id: salaId })
+        body: JSON.stringify({ sala_id: salaId })
     })
-    .then((respuesta) => {
-        console.log(respuesta)
-        respuesta.json()
-    })
-    .then(() => actualizarSalas())
-    .catch(error => console.error('Error al crear el asiento:', error));
+        .then((respuesta) => {
+            console.log(respuesta)
+            respuesta.json()
+        })
+        .then(() => clickSala(salaId))
+        .catch(error => console.error('Error al crear el asiento:', error));
 }
 
 
@@ -117,7 +116,7 @@ function mostrarSillas(sillas, salaId) {
         // <button class="btn btn-outline-secondary m-1">1</button>
         let sillaDiv = document.createElement('button');
         sillaDiv.classList.add('btn', 'btn-outline-secondary', 'm-1');
-        if (sillaDiv.textContent != ocupada)  {
+        if (sillaDiv.textContent != ocupada) {
             sillaDiv.appendChild(document.createElement('img')).src = "img/ocupado1.png";
         }
         else {
@@ -144,6 +143,6 @@ function actualizarSilla(sillaId, salaId) {
         },
         body: JSON.stringify({ id: sillaId })
     })
-    .then(() => clickSala(salaId)) // Refrescar las sillas de la sala
-    .catch(error => console.error('Error al actualizar la silla:', error));
+        .then(() => clickSala(salaId)) // Refrescar las sillas de la sala
+        .catch(error => console.error('Error al actualizar la silla:', error));
 }
