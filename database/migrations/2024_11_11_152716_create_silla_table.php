@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('silla', function (Blueprint $table) {
             $table->id();
             $table->boolean('ocupada');
-            $table->string('descripcion');
             $table->unsignedBigInteger('sala_id');
             $table->foreign('sala_id')->references('id')->on('sala');
             $table->timestamps();

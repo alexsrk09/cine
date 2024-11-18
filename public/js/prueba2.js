@@ -1,26 +1,60 @@
+let salaId = null
 document.addEventListener('DOMContentLoaded', () => {
     // Actualizar la lista de salas al cargar la página
     actualizarSalas();
-    document.querySelector("#crear_sala").addEventListener('click', (e) => {
+    document.querySelector("#crearSala").addEventListener('click', (e) => {
         e.preventDefault();
         crearSala();
+    });
+    document.querySelector("#crearAsiento").addEventListener('click', (e) => {
+        e.preventDefault();
+        crearAsiento();
     });
 });
 function crearSala() {
     fetch("/createsala", {
         method: 'POST',
         headers: {
+            'content-type': 'application/json',
+            'X-CSRF-TOKEN': csrf
+        },
+        body: JSON.stringify({
+            nombre: prompt('Nombre de la sala:'),
+            descripcion: prompt('Descripción de la sala:')
+        })
+    })
+        .then((respuesta) => {
+            console.log(respuesta)
+            respuesta.json()
+        })
+        .then((resultado) => {
+            console.log(resultado)
+            actualizarSalas()
+        })
+        .then(() => actualizarSalas())
+        .catch(error => console.error('Error al crear la sala:', error));
+}
+
+// FUNCION CREAR ASIENTO
+function crearAsiento() {
+
+    fetch('/createsilla', {
+        method: 'POST',
+        headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
-        body: JSON.stringify({ 
-            nombre: 'Sala nueva',
-            descripcion: 'Sala de prueba nueva'
-         })
+        body: JSON.stringify({ sala_id: salaId })
     })
-    .then(() => actualizarSalas())
-    .catch(error => console.error('Error al crear la sala:', error));
+        .then((respuesta) => {
+            console.log(respuesta)
+            respuesta.json()
+        })
+        .then(() => clickSala(salaId))
+        .catch(error => console.error('Error al crear el asiento:', error));
 }
+
+
 // Función para limpiar el contenido de un elemento
 function clearElement(element) {
     while (element.firstChild) {
@@ -43,23 +77,25 @@ function mostrarSalas(salas) {
 
     salas.forEach(sala => {
         const { id, nombre } = sala;
-
-        let salaDiv = document.createElement('div');
-        salaDiv.style.backgroundColor = 'green';
-        salaDiv.style.margin = '5px';
-        salaDiv.style.height = '30px';
+        // <button
+        //         class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala
+        //         1</button>
+        let salaDiv = document.createElement('button');
         salaDiv.textContent = nombre;
-
+        salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
         salasDiv.appendChild(salaDiv);
 
         salaDiv.addEventListener('click', () => {
             clickSala(id); // Llamar a la función para mostrar las sillas
+            // mostrar la descripcion de la sala
+            document.querySelector('#descripcion').textContent = sala.descripcion;
         });
     });
 }
 
 // Función para manejar el clic en una sala y mostrar las sillas
 function clickSala(id) {
+    salaId = id
     fetch('/getsillas/' + id)
         .then(response => response.json())
         .then(datos => mostrarSillas(datos, id)) // Pasar id para reutilizarlo al actualizar
@@ -77,10 +113,15 @@ function mostrarSillas(sillas, salaId) {
         contador++;
         const { id, ocupada } = silla;
 
-        let sillaDiv = document.createElement('div');
-        
-        if (sillaDiv.textContent != ocupada)  sillaDiv.textContent = "X";
-        else sillaDiv.textContent = contador;
+        // <button class="btn btn-outline-secondary m-1">1</button>
+        let sillaDiv = document.createElement('button');
+        sillaDiv.classList.add('btn', 'btn-outline-secondary', 'm-1');
+        if (sillaDiv.textContent != ocupada) {
+            sillaDiv.appendChild(document.createElement('img')).src = "img/ocupado1.png";
+        }
+        else {
+            sillaDiv.appendChild(document.createElement('img')).src = "img/libre1.png";
+        }
 
         // sillaDiv.textContent = (sillaDiv.textContent == ocupada)? 'X' : contador;
 
@@ -93,15 +134,15 @@ function mostrarSillas(sillas, salaId) {
 }
 
 // Función para actualizar una silla y refrescar las sillas de la sala
-function actualizarSilla(idSilla, salaId) {
+function actualizarSilla(sillaId, salaId) {
     fetch('/updatesilla', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
-        body: JSON.stringify({ id: idSilla })
+        body: JSON.stringify({ id: sillaId })
     })
-    .then(() => clickSala(salaId)) // Refrescar las sillas de la sala
-    .catch(error => console.error('Error al actualizar la silla:', error));
+        .then(() => clickSala(salaId)) // Refrescar las sillas de la sala
+        .catch(error => console.error('Error al actualizar la silla:', error));
 }

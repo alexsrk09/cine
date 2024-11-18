@@ -10,13 +10,34 @@ use Illuminate\Support\Facades\Validator;
 class SalaController extends Controller
 {
     // crud Model Sala
-    public function create()
+    public function create(Request $request)
     {
-        $sala = new Sala();
-        $sala->nombre = $_POST['nombre'];
-        $sala->descripcion = $_POST['descripcion'];
-        $sala->save();
-        return $sala;
+        if(!isset($request['descripcion']) || strlen($request['descripcion']) == 0){
+            $request['descripcion'] = "descripcion vacia";
+        }
+
+        $data =[
+            'nombre' => $request['nombre'],
+            'descripcion' => $request['descripcion']
+        ];
+
+        $validator = Validator::make($data,
+        [
+            'nombre' => 'required|string|max:100',
+            'descripcion' => 'string|max:1000'
+        ],
+        []);
+
+        if($validator ->passes()){
+            echo "create";
+            $sala = new Sala();
+            $sala->nombre = $request['nombre'];
+            $sala->descripcion = $request['descripcion'];
+            $sala->save();
+            return $sala;
+        }else{
+            return "Los datos introducidos son errones";
+        }
     }
     public function getAll(){
         return Sala::all();
