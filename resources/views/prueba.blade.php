@@ -39,7 +39,12 @@
             overflow: auto;
         }
 
-        section:nth-child(1),
+        section:nth-child(1){
+            flex: 1;
+            /* Ancho igual para las secciones laterales */
+            background-color: #e5edf1b4;
+            border-radius: 10px;
+        }
         /* primer section */
         section:nth-child(3)
 
@@ -47,13 +52,11 @@
             {
             flex: 1;
             /* Ancho igual para las secciones laterales */
-            background-color: #e5edf1b4;
         }
 
-        section:nth-child(2)
-
+        section:nth-child(2){
+            
         /* tercero section */
-            {
             flex: 2;
             /* Doble ancho para la sección central */
             background-color: #95c1dbb4;
@@ -79,6 +82,13 @@
             width: 100%;
             height: 100%;
         }
+        .movie-info {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+
     </style>
 </head>
 <body>
@@ -96,7 +106,8 @@
             <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2" id="crearSala">Crear Sala</button>
             <hr>
             <div id="lista-salas">
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
+                <button class="btn btn-light border border-3 border-primary text-dark fw-bold btn-custom mb-2">Sala 1</button>
+                <button class="btn btn-light border border-3 border-danger text-danger fw-bold btn-custom mb-2">X</button>
                 <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
                 <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
                 <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
@@ -134,19 +145,22 @@
             <h2 class="mb-3">Spiderman 3</h2>
             <p class="lead">Elección de asientos</p>
             <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
+            <hr>
             <div class="d-flex flex-wrap" id="pelis">
-            <button class="btn btn-outline-secondary m-1">
+            <button class="btn btn-light bg-transparent border-3 border-primary m-1">
                 <img src="img/ocupado1.png" alt="Asiento ocupado">
+                <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
             </button>
-            <button class="btn btn-outline-secondary m-1">
+            <button class="btn bg-transparent border-3 border-primary m-1">
                 <img src="img/libre1.png" alt="Asiento libre">
             </button>
             </div>
         </section>
 
         <!-- Información de la película -->
-        <section>
+        <section class="movie-info">
             <h2>Información de la Película</h2>
+            <hr>
             <p>
                 El superhéroe de ficción Spider-Man, creado por Stan Lee y Steve Ditko, aparece en múltiples películas. Desde las primeras adaptaciones hasta la actual versión del Universo Cinematográfico de Marvel, este icónico personaje ha sido interpretado por Nicholas Hammond, Tobey Maguire, Andrew Garfield, y Tom Holland.
                 Tom Holland, bajo el acuerdo entre Marvel Studios y Sony Pictures, ha aparecido en varias películas, destacándose por su integración en el MCU desde 2016.
@@ -157,9 +171,9 @@
     <footer>
         <span>&copy; 2024 Cine Medac</span>
         <ul class="list-unstyled d-flex mb-0">
-            <li class="ms-3"><a class="text-dark" href="#"><i class="bi bi-twitter"></i></a></li>
-            <li class="ms-3"><a class="text-dark" href="#"><i class="bi bi-instagram"></i></a></li>
-            <li class="ms-3"><a class="text-dark" href="#"><i class="bi bi-facebook"></i></a></li>
+            <li class="ms-3"><a class="text-dark" href="https://x.com/"><i class="bi bi-twitter"></i></a>Twitter</li>
+            <li class="ms-3"><a class="text-dark" href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>Instagram</li>
+            <li class="ms-3"><a class="text-dark" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>Facebook</li>
         </ul>
     </footer>
 
