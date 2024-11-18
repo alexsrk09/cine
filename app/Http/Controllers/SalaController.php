@@ -10,11 +10,11 @@ use Illuminate\Support\Facades\Validator;
 class SalaController extends Controller
 {
     // crud Model Sala
-    public function create()
+    public function create(Request $request)
     {
         $sala = new Sala();
-        $sala->nombre = $_POST['nombre'];
-        $sala->descripcion = $_POST['descripcion'];
+        $sala->nombre = $request['nombre'];
+        $sala->descripcion = $request['descripcion'];
         $sala->save();
         return $sala;
     }
