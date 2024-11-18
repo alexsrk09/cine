@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,26 +43,33 @@
             overflow: auto;
         }
 
-        section:nth-child(1){
+        /* .overflow{
+            background: #f1f1f1;
+            border-radius: 10px;
+            overflow-y: auto;
+        } */
+
+        section:nth-child(1) {
             flex: 1;
             /* Ancho igual para las secciones laterales */
             /* background-color: #e5edf1b4; */
             border-radius: 10px;
         }
-        /* primer section */
-        section:nth-child(3){
 
-        /* tercer section */
-            
+        /* primer section */
+        section:nth-child(3) {
+
+            /* tercer section */
+
             flex: 1;
             background-color: #0d253f;
-            
+
             /* Ancho igual para las secciones laterales */
         }
 
-        section:nth-child(2){
-            
-        /* tercero section */
+        section:nth-child(2) {
+
+            /* tercero section */
             flex: 2;
             /* Doble ancho para la sección central */
             /* background-color: #95c1dbb4; */
@@ -82,25 +90,58 @@
             max-width: 150px;
             background-color: #01b4e4;
         }
+
         #pelis button {
             width: 10%;
         }
+
         #pelis button img {
             width: 100%;
             height: 100%;
         }
+
         .movie-info {
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 2rem;
         }
-        .InfoPeli{
+
+        .InfoPeli {
             color: var(--secondary-color);
+        }
+
+        .divAsientos {
+            border-color: black solid 1px;
+            background-color: aliceblue;
+        }
+
+        .sala-btn-group {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .sala-btn {
+            flex-grow: 1;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            background-color: var(--secondary-color);
+        }
+
+        .asiento-btn {
+            flex-grow: 1;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+        }
+
+        .delete-btn {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
         }
 
     </style>
 </head>
+
 <body>
     <header class="text-center text-white">
         <div class="container">
@@ -114,60 +155,87 @@
         <section>
             <h5 class="mb-3 text-white">Gestionar Salas</h5>
             <button class="btn btn-light border border-3 border-dark text-dark fw-bold rounded-pill btn-custom mb-2" id="crearSala">Crear Sala</button>
-            <hr>
+            <hr class="border-3">
             <div id="lista-salas">
-                <button class="btn btn-light border border-3 border-dark text-white fw-bold btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-danger text-danger fw-bold btn-custom mb-2">X</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 1</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 2</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 3</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 4</button>
-                <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2">Sala 5</button>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+                <div class="sala-btn-group">
+                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
+                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
+                </div>
+
+
             </div>
         </section>
 
         <!-- Área de selección de asientos -->
         <section>
             <h2 class="mb-3 text-white">Spiderman 3</h2>
-            <p class="lead text-white">Elección de asientos</p>
+            <p class="text-white">Elección de asientos</p>
             <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
-            <hr>
+            <hr class="border-3">
+
             <div class="d-flex flex-wrap" id="pelis">
-                <div class="bg-white">
-            <button class="btn btn-light bg-transparent border-3 border-primary m-1">
-                <img src="img/ocupado1.png" alt="Asiento ocupado">
-                <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
-            </button>
-                
-            <button class="btn bg-transparent border-3 border-primary m-1">
-                <img src="img/libre1.png" alt="Asiento libre">
-            </button>
+                <div class="divAsientos">
+                    <div class="sala-btn-group">
+                        <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
+                            <img class="asiento-btn" src="img/ocupado1.png" alt="Asiento ocupado">
+                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1 delete-btn">X</button>
+                        </button>
+                        <button class="btn bg-transparent border-3 border-primary m-1">
+                            <img src="img/libre1.png" alt="Asiento libre">
+                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1 delete-btn">X</button>
+                        </button>
+                    </div>
                 </div>
             </div>
+
         </section>
 
         <!-- Información de la película -->
@@ -193,4 +261,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/prueba.js"></script>
 </body>
+
 </html>
