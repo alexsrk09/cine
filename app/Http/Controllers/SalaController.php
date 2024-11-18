@@ -10,15 +10,15 @@ use Illuminate\Support\Facades\Validator;
 class SalaController extends Controller
 {
     // crud Model Sala
-    public function create()
+    public function create(Request $request)
     {
-        if(!isset($_POST['descripcion']) || strlen($_POST['descripcion']) == 0){
-            $_POST['descripcion'] = "descripcion vacia";
+        if(!isset($_POST['descripcion']) || strlen($request['descripcion']) == 0){
+            $request['descripcion'] = "descripcion vacia";
         }
 
         $data =[
-            'nombre' => $_POST['nombre'],
-            'descripcion' => $_POST['descripcion']
+            'nombre' => $request['nombre'],
+            'descripcion' => $request['descripcion']
         ];
 
         $validator = Validator::make($data,
