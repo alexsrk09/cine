@@ -12,31 +12,11 @@ class SalaController extends Controller
     // crud Model Sala
     public function create()
     {
-        if(!isset($_POST['descripcion']) || strlen($_POST['descripcion']) == 0){
-            $_POST['descripcion'] = "descripcion vacia";
-        }
-
-        $data =[
-            'nombre' => $_POST['nombre'],
-            'descripcion' => $_POST['descripcion']
-        ];
-
-        $validator = Validator::make($data,
-        [
-            'nombre' => 'required|string|max:100',
-            'descripcion' => 'string|max:1000'
-        ],
-        []);
-
-        if($validator ->passes()){
-            echo "create";
-            $sala = new Sala();
-            $sala->nombre = $_POST['nombre'];
-            $sala->save();
-            return $sala;
-        }else{
-            return "Los datos introducidos son errones";
-        }
+        $sala = new Sala();
+        $sala->nombre = $_POST['nombre'];
+        $sala->descripcion = $_POST['descripcion'];
+        $sala->save();
+        return $sala;
     }
     public function getAll(){
         return Sala::all();
