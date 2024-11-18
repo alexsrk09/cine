@@ -5,7 +5,17 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         crearSala();
     });
+    document.querySelector("#crearAsiento").addEventListener('click', (e) => {
+        e.preventDefault();
+        crearAsiento();
+    });
 });
+function crearAsiento(){
+    // ////////////////////////////////////////////////////////////
+    // let sala; tienes que saber a que sala pertenece el asiento
+    // luego hacer un fetch 
+    // ////////////////////////////////////////////////////////////
+}
 function crearSala() {
     fetch("/createsala", {
         method: 'POST',
