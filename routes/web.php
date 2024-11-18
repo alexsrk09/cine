@@ -29,4 +29,5 @@ Route::get('/getallsalas', [SalaController::class, 'getAll']);
 Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
 Route::get('/prueba', function () {return view('/prueba');});
 Route::get('/prueba2', function () {return view('/prueba2');});
+Route::get('/prueba4', function () {return view('/prueba4');});
 Route::get('/token', function () {return csrf_token(); });
