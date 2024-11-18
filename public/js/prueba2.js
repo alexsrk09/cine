@@ -10,15 +10,22 @@ function crearSala() {
     fetch("/createsala", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
         body: JSON.stringify({ 
-            nombre: 'Sala nueva',
-            descripcion: 'Sala de prueba nueva'
+            nombre: prompt('Nombre de la sala:'),
+            descripcion: prompt('Descripción de la sala:')
          })
     })
-    .then(() => actualizarSalas())
+    .then((respuesta) => {
+        console.log(respuesta)
+        respuesta.json()
+    })
+    .then((resultado ) => {
+        console.log(resultado)
+       actualizarSalas() 
+    })
     .catch(error => console.error('Error al crear la sala:', error));
 }
 // Función para limpiar el contenido de un elemento
