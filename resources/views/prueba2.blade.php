@@ -83,18 +83,15 @@
         }
     </style>
 </head>
-{{-- <body>
-
-
+<body>
+{{--
     <div id="salas"></div>
 
     <div id="pelis"></div>
 
     <button id="crear_sala">Crear sala  </button>
 
-    
-    
-    </body> --}}
+    --}}
 <header class="text-center text-black">
     <div class="container">
         <h1 class="fw-bold">Cine Medac</h1>
@@ -149,7 +146,7 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 
-
+</body>
 </html>
 <script>
     let csrf = '{{ csrf_token() }}'
