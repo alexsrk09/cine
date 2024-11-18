@@ -1,26 +1,61 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Actualizar la lista de salas al cargar la página
+    let salaId = null
     actualizarSalas();
     document.querySelector("#crear_sala").addEventListener('click', (e) => {
         e.preventDefault();
         crearSala();
+    });
+    document.querySelector("#crearAsiento").addEventListener('click', (e) => {
+        e.preventDefault();
+        crearAsiento();
     });
 });
 function crearSala() {
     fetch("/createsala", {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'content-type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
-        body: JSON.stringify({ 
-            nombre: 'Sala nueva',
-            descripcion: 'Sala de prueba nueva'
-         })
+        body: JSON.stringify({
+            nombre: prompt('Nombre de la sala:'),
+            descripcion: prompt('Descripción de la sala:')
+        })
+    })
+    .then((respuesta) => {
+        console.log(respuesta)
+        respuesta.json()
+    })
+    .then((resultado ) => {
+        console.log(resultado)
+        actualizarSalas()
     })
     .then(() => actualizarSalas())
     .catch(error => console.error('Error al crear la sala:', error));
 }
+
+// FUNCION CREAR ASIENTO
+function crearAsiento(){
+    let id_todo = '' + salaId + '' + sillaId
+
+    fetch('/createsilla', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrf
+        },
+        body: JSON.stringify({ id: salaId })
+    })
+    .then((respuesta) => {
+        console.log(respuesta)
+        respuesta.json()
+    })
+    .then(() => actualizarSalas())
+    .catch(error => console.error('Error al crear el asiento:', error));
+}
+
+
 // Función para limpiar el contenido de un elemento
 function clearElement(element) {
     while (element.firstChild) {
@@ -61,6 +96,7 @@ function mostrarSalas(salas) {
 
 // Función para manejar el clic en una sala y mostrar las sillas
 function clickSala(id) {
+    salaId = id
     fetch('/getsillas/' + id)
         .then(response => response.json())
         .then(datos => mostrarSillas(datos, id)) // Pasar id para reutilizarlo al actualizar
@@ -99,14 +135,14 @@ function mostrarSillas(sillas, salaId) {
 }
 
 // Función para actualizar una silla y refrescar las sillas de la sala
-function actualizarSilla(idSilla, salaId) {
+function actualizarSilla(sillaId, salaId) {
     fetch('/updatesilla', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
-        body: JSON.stringify({ id: idSilla })
+        body: JSON.stringify({ id: sillaId })
     })
     .then(() => clickSala(salaId)) // Refrescar las sillas de la sala
     .catch(error => console.error('Error al actualizar la silla:', error));
