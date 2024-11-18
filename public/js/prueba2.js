@@ -5,37 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         crearSala();
     });
-    document.querySelector("#crearAsiento").addEventListener('click', (e) => {
-        e.preventDefault();
-        crearAsiento();
-    });
 });
-function crearAsiento(){
-    // ////////////////////////////////////////////////////////////
-    // let sala; tienes que saber a que sala pertenece el asiento
-    // luego hacer un fetch 
-    // ////////////////////////////////////////////////////////////
-}
 function crearSala() {
     fetch("/createsala", {
         method: 'POST',
         headers: {
-            'content-type': 'application/json',
+            'Content-Type': 'application/json',
             'X-CSRF-TOKEN': csrf
         },
         body: JSON.stringify({ 
-            nombre: prompt('Nombre de la sala:'),
-            descripcion: prompt('Descripción de la sala:')
+            nombre: 'Sala nueva',
+            descripcion: 'Sala de prueba nueva'
          })
     })
-    .then((respuesta) => {
-        console.log(respuesta)
-        respuesta.json()
-    })
-    .then((resultado ) => {
-        console.log(resultado)
-       actualizarSalas() 
-    })
+    .then(() => actualizarSalas())
     .catch(error => console.error('Error al crear la sala:', error));
 }
 // Función para limpiar el contenido de un elemento

@@ -107,7 +107,7 @@
     <section>
         <h5 class="mb-3">Gestionar Salas</h5>
         <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-2"
-            id="crear_sala">Crear Sala</button>
+            id="crearSala">Crear Sala</button>
         <hr>
         <div id="salas">
             {{-- <button
