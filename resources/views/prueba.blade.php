@@ -128,12 +128,6 @@
             background-color: var(--secondary-color);
         }
 
-        .asiento-btn {
-            flex-grow: 1;
-            border-top-right-radius: 0 !important;
-            border-bottom-right-radius: 0 !important;
-        }
-
         .delete-btn {
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
@@ -225,12 +219,12 @@
                 <div class="divAsientos">
                     <div class="sala-btn-group">
                         <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
-                            <img class="asiento-btn" src="img/ocupado1.png" alt="Asiento ocupado">
-                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1 delete-btn">X</button>
+                            <img src="img/ocupado1.png" alt="Asiento ocupado">
+                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
                         </button>
                         <button class="btn bg-transparent border-3 border-primary m-1">
                             <img src="img/libre1.png" alt="Asiento libre">
-                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1 delete-btn">X</button>
+                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
                         </button>
                     </div>
                 </div>
