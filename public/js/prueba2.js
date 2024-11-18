@@ -176,7 +176,7 @@ function mostrarSillas(sillas, salaId) {
         sillaDiv.appendChild(img);
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'X';
-        deleteBtn.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-danger', 'text-danger', 'm-1');
+        deleteBtn.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex');
         sillaDiv.appendChild(deleteBtn);
         
         pelisDiv.appendChild(sillaDiv);
