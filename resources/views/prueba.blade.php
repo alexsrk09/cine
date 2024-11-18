@@ -150,61 +150,11 @@
             <h5 class="mb-3 text-white">Gestionar Salas</h5>
             <button class="btn btn-light border border-3 border-dark text-dark fw-bold rounded-pill btn-custom mb-2" id="crearSala">Crear Sala</button>
             <hr class="border-3">
-            <div id="lista-salas">
-                <div class="sala-btn-group">
+            <div id="salas">
+                {{-- <div class="sala-btn-group">
                     <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
                     <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-                <div class="sala-btn-group">
-                    <button class="btn btn-light border-3 border-dark text-white fw-bold sala-btn">Sala 1</button>
-                    <button class="btn btn-danger border-3 border-danger text-white fw-bold delete-btn">X</button>
-                </div>
-
-
+                </div> --}}
             </div>
         </section>
 
@@ -215,18 +165,12 @@
             <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
             <hr class="border-3">
 
-            <div class="d-flex flex-wrap" id="pelis">
-                <div class="divAsientos">
-                    <div class="sala-btn-group">
-                        <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
+            <div class="d-flex flex-wrap">
+                <div class="divAsientos" id="pelis">
+                        {{-- <button class="btn btn-light bg-transparent border-3 border-primary m-1">
                             <img src="img/ocupado1.png" alt="Asiento ocupado">
                             <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
-                        </button>
-                        <button class="btn bg-transparent border-3 border-primary m-1">
-                            <img src="img/libre1.png" alt="Asiento libre">
-                            <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
-                        </button>
-                    </div>
+                        </button> --}}
                 </div>
             </div>
 
@@ -257,3 +201,7 @@
 </body>
 
 </html>
+<script>
+    let csrf = '{{ csrf_token() }}'
+</script>
+<script src="js/prueba2.js"></script>
