@@ -17,4 +17,8 @@ class Sala extends Model
         'nombre',
         'descripcion'
     ];
+
+    public function sala(){
+        return $this->hasMany('silla');
+    }
 }
