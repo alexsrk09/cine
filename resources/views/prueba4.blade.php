@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Medac</title>
+    <link rel="shortcut icon" href="img/dorado.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
@@ -14,6 +15,7 @@
             --colorFondoSection1-2: #958aa486;
             --colorBtnCrear: #55507b;
             --colorFondoSection3: #958aa4;
+            --colorTitulo: #dbd4f5;
         }
 
         body {
@@ -142,6 +144,12 @@
         .tamano{
             max-width: fit-content;
         }
+        .colorTit{
+            color: var(--colorTitulo);
+        }
+        .logo{
+            width:4%;
+        }
 
     </style>
 </head>
@@ -149,7 +157,7 @@
 <body>
     <header class="text-center text-white">
         <div class="container">
-            <h1 class="fw-bold">Cine Medac</h1>
+            <h1 class="fw-bold colorTit"><em>Cine Medac</em></h1>
         </div>
     </header>
 
@@ -204,6 +212,7 @@
             <li class="ms-3"><a class="text-dark" href="https://www.instagram.com/"><i class="bi bi-instagram"></i></a>Instagram</li>
             <li class="ms-3"><a class="text-dark" href="https://www.facebook.com/"><i class="bi bi-facebook"></i></a>Facebook</li>
         </ul>
+        <img class="logo"src="img/dorado.png" alt="Logo Cine">
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
