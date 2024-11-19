@@ -177,9 +177,6 @@ function mostrarSillas(sillas, salaId) {
     document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + okupados;
     sillas.forEach(silla => {
         const { id, ocupada } = silla;
-        if (ocupada == 1) {
-            okupados++;
-        }
         // document.querySelector('#ocupados').innerHTML ="Asientos ocupados: " +okupados;
         // <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
         //                     <img src="img/ocupado1.png" alt="Asiento ocupado">
