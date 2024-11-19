@@ -67,6 +67,9 @@ function clearElement(element) {
 
 // Función para actualizar la lista de salas
 function actualizarSalas() {
+    document.querySelector("#descripcion").innerHTML = "";
+    document.querySelector("#salaName").innerHTML = "";
+    document.querySelector('#ocupados').innerHTML = "";
     fetch("/getallsalas")
         .then(response => response.json())
         .then(datos => mostrarSalas(datos))
@@ -103,6 +106,7 @@ function mostrarSalas(salas) {
             clickSala(id); // Llamar a la función para mostrar las sillas
             // console.log(sala.descripcion)
             document.querySelector("#descripcion").innerHTML = sala.descripcion;
+            document.querySelector("#salaName").innerHTML = sala.nombre;
             // mostrar la descripcion de la sala
         });
     });
@@ -167,14 +171,11 @@ function deleteAsiento(id, sala_id) {
 
 // Mostrar las sillas en el DOM
 function mostrarSillas(sillas, salaId) {
-    okupados = 0;
     const pelisDiv = document.querySelector('#pelis');
     clearElement(pelisDiv);
-
-    let contador = 0;
     okupados = 0;
+    document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + okupados;
     sillas.forEach(silla => {
-        contador++;
         const { id, ocupada } = silla;
         if (ocupada == 1) {
             okupados++;
