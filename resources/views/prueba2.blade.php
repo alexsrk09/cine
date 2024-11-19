@@ -151,3 +151,4 @@
     let csrf = '{{ csrf_token() }}'
 </script>
 <script src="js/prueba2.js"></script>
+{{-- <script src="js/validaciones.js"></script> --}}

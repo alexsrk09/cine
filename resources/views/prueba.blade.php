@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
-            --var-primary: url('img/cine.webp');
+            --var-primary: url('img/cine3.webp');
             --primary-color: #0d253f;
             --secondary-color: #3498db;
         }
@@ -113,7 +113,6 @@
 
         .divAsientos {
             border-color: black solid 1px;
-            background-color: aliceblue;
         }
 
         .sala-btn-group {
@@ -126,11 +125,18 @@
             border-top-right-radius: 0 !important;
             border-bottom-right-radius: 0 !important;
             background-color: var(--secondary-color);
+            max-width: fit-content;
         }
 
         .delete-btn {
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
+        }
+        .background{
+            background-color: #0d253f86;
+        }
+        .tamano{
+            max-width: fit-content;
         }
 
     </style>
@@ -146,8 +152,8 @@
 
     <main>
         <!-- Sidebar de Salas -->
-        <section>
-            <h5 class="mb-3 text-white">Gestionar Salas</h5>
+        <section class="background m-3 tamano">
+            <h5 class="mb-3 text-white text-center">Gestionar Salas</h5>
             <button class="btn btn-light border border-3 border-dark text-dark fw-bold rounded-pill btn-custom mb-2" id="crearSala">Crear Sala</button>
             <hr class="border-3">
             <div id="salas">
@@ -159,12 +165,13 @@
         </section>
 
         <!-- Área de selección de asientos -->
-        <section>
-            <h2 class="mb-3 text-white">Spiderman 3</h2>
-            <p class="text-white">Elección de asientos</p>
-            <button class="btn btn-light border border-3 border-primary text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
-            <hr class="border-3">
+        <section class="background m-3">
+            <h5 class="text-white text-center">Elección de asientos</h5>
+            <button class="btn btn-light border border-3 border-dark text-dark fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
+            <p class="text-white">Asientos ocupados: </p>
 
+            <hr class="border-3">
+            <h2 class="mb-3 text-white">Spiderman 3</h2>
             <div class="d-flex flex-wrap">
                 <div class="divAsientos" id="pelis">
                         {{-- <button class="btn btn-light bg-transparent border-3 border-primary m-1">
