@@ -100,7 +100,7 @@ function mostrarSalas(salas) {
 
         deleteBtn.addEventListener('click', () => {
             deleteSala(id); // Llamar a la función para eliminar la sala
-        });
+        });
 
         salaDiv.addEventListener('click', () => {
             clickSala(id); // Llamar a la función para mostrar las sillas
@@ -169,14 +169,14 @@ function mostrarSillas(sillas, salaId) {
         //                 </button>
 
         let sillaDiv = document.createElement('button');
-        sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-primary', 'm-1');
+        sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-light', 'm-1');
         let img = document.createElement('img');
         img.src = (ocupada == 1)? "img/ocupado1.png" : "img/libre1.png";
         img.alt = (ocupada == 1)? "Asiento ocupado" : "Asiento libre";
         sillaDiv.appendChild(img);
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'X';
-        deleteBtn.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex');
+        deleteBtn.classList.add('btn', 'btn-light', 'bg-danger', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex','text-white');
         sillaDiv.appendChild(deleteBtn);
         
         pelisDiv.appendChild(sillaDiv);
