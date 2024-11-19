@@ -32,4 +32,4 @@ Route::get('/prueba', function () {return view('/prueba');});
 Route::get('/prueba2', function () {return view('/prueba2');});
 Route::get('/prueba4', function () {return view('/prueba4');});
 Route::get('/responsive2', function () {return view('/responsive2');});
-Route::get('/token', function () {return csrf_token(); });
+// Route::get('/token', function () {return csrf_token(); });
