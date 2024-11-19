@@ -171,7 +171,7 @@
         <section class="background m-3">
             <h5 class="text-white text-center">Elección de asientos</h5>
             <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
-            <p class="text-white">Asientos ocupados: </p>
+            <p class="text-white" id="ocupados">Asientos ocupados: </p>
 
             <hr class="text-danger border-3">
             <h2 class="mb-3 text-white">Spiderman 3</h2>
@@ -190,7 +190,7 @@
         <section class="movie-info m-4">
             <h2 class="InfoPeli">Información de la Película</h2>
             <hr class="text-danger border-4">
-            <p class="text-white">
+            <p class="text-white" id="descripcion">
                 El superhéroe de ficción Spider-Man, creado por Stan Lee y Steve Ditko, aparece en múltiples películas. Desde las primeras adaptaciones hasta la actual versión del Universo Cinematográfico de Marvel, este icónico personaje ha sido interpretado por Nicholas Hammond, Tobey Maguire, Andrew Garfield, y Tom Holland.
                 Tom Holland, bajo el acuerdo entre Marvel Studios y Sony Pictures, ha aparecido en varias películas, destacándose por su integración en el MCU desde 2016.
             </p>

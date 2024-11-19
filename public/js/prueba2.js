@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let salaId = null
-
+let okupados = 0
 // CREAR SALA
 function crearSala() {
     fetch("/createsala", {
@@ -77,7 +77,6 @@ function actualizarSalas() {
 function mostrarSalas(salas) {
     const salasDiv = document.querySelector('#salas');
     clearElement(salasDiv);
-
     salas.forEach(sala => {
         const { id, nombre } = sala;
         // <div class="sala-btn-group">
@@ -94,8 +93,6 @@ function mostrarSalas(salas) {
         deleteBtn.textContent = 'X';
         deleteBtn.classList.add('btn', 'btn-danger', 'border-3', 'border-danger', 'text-white', 'fw-bold', 'delete-btn');
         salaDiv.appendChild(deleteBtn);
-        // salaDiv.textContent = nombre;
-        // salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
         salasDiv.appendChild(salaDiv);
 
         deleteBtn.addEventListener('click', () => {
@@ -104,8 +101,9 @@ function mostrarSalas(salas) {
 
         salaDiv.addEventListener('click', () => {
             clickSala(id); // Llamar a la función para mostrar las sillas
+            // console.log(sala.descripcion)
+            document.querySelector("#descripcion").innerHTML = sala.descripcion;
             // mostrar la descripcion de la sala
-            document.querySelector('#descripcion').textContent = sala.descripcion;
         });
     });
 }
@@ -169,20 +167,25 @@ function deleteAsiento(id, sala_id) {
 
 // Mostrar las sillas en el DOM
 function mostrarSillas(sillas, salaId) {
+    okupados = 0;
     const pelisDiv = document.querySelector('#pelis');
     clearElement(pelisDiv);
 
     let contador = 0;
-
+    okupados = 0;
     sillas.forEach(silla => {
         contador++;
         const { id, ocupada } = silla;
-
+        if (ocupada == 1) {
+            okupados++;
+        }
+        // document.querySelector('#ocupados').innerHTML ="Asientos ocupados: " +okupados;
         // <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
         //                     <img src="img/ocupado1.png" alt="Asiento ocupado">
         //                     <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
         //                 </button>
-
+        if (ocupada == 1) okupados++;
+        document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + okupados;
         let sillaDiv = document.createElement('button');
         sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-light', 'm-1');
         let img = document.createElement('img');
