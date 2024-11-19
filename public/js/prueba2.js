@@ -139,6 +139,7 @@ function clickSala(id) {
         .catch(error => console.error('Error al borrar la sala:', error));
 } */
 
+// ELIMINAR SALA
 function deleteSala(id) {
     fetch('/deletesala', {
         method: 'POST',
@@ -150,6 +151,20 @@ function deleteSala(id) {
     })
         .then(() => actualizarSalas())
         .catch(error => console.error('Error al eliminar la sala:', error));
+}
+
+// ELIMINAR ASIENTO
+function deleteAsiento(id, sala_id) {
+    fetch('/deletesilla', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': csrf
+        },
+        body: JSON.stringify({ id: id })
+    })
+        .then(() => clickSala(sala_id))
+        .catch(error => console.error('Error al eliminar el asiento:', error));
 }
 
 // Mostrar las sillas en el DOM
@@ -178,8 +193,12 @@ function mostrarSillas(sillas, salaId) {
         deleteBtn.textContent = 'X';
         deleteBtn.classList.add('btn', 'btn-light', 'bg-danger', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex','text-white');
         sillaDiv.appendChild(deleteBtn);
-        
+
         pelisDiv.appendChild(sillaDiv);
+
+        deleteBtn.addEventListener('click', () => {
+            deleteAsiento(id, salaId)
+        })
 
         img.addEventListener('click', () => {
             actualizarSilla(id, salaId); // Actualizar silla y refrescar vista
