@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let salaId = null
+let cont_ocupados = 0
 
 // CREAR SALA
 function crearSala() {
@@ -28,11 +29,7 @@ function crearSala() {
     })
         .then((respuesta) => {
             console.log(respuesta)
-            respuesta.json()
-        })
-        .then((resultado) => {
-            console.log(resultado)
-            actualizarSalas()
+            respuesta.json() // respuesat de la api ERROR (500) O NO la guarda en la bd y devuelve el mismoonjeto
         })
         .then(() => actualizarSalas())
         .catch(error => console.error('Error al crear la sala:', error));
@@ -67,6 +64,9 @@ function clearElement(element) {
 
 // Función para actualizar la lista de salas
 function actualizarSalas() {
+    document.querySelector("#descripcion").innerHTML = "";
+    document.querySelector("#salaName").innerHTML = "";
+    document.querySelector('#ocupados').innerHTML = "";
     fetch("/getallsalas")
         .then(response => response.json())
         .then(datos => mostrarSalas(datos))
@@ -77,7 +77,6 @@ function actualizarSalas() {
 function mostrarSalas(salas) {
     const salasDiv = document.querySelector('#salas');
     clearElement(salasDiv);
-
     salas.forEach(sala => {
         const { id, nombre } = sala;
         // <div class="sala-btn-group">
@@ -94,8 +93,6 @@ function mostrarSalas(salas) {
         deleteBtn.textContent = 'X';
         deleteBtn.classList.add('btn', 'btn-danger', 'border-3', 'border-danger', 'text-white', 'fw-bold', 'delete-btn');
         salaDiv.appendChild(deleteBtn);
-        // salaDiv.textContent = nombre;
-        // salaDiv.classList.add('btn', 'btn-light', 'border', 'border-3', 'border-primary', 'text-dark', 'fw-bold', 'rounded-pill', 'btn-custom', 'mb-2');
         salasDiv.appendChild(salaDiv);
 
         deleteBtn.addEventListener('click', () => {
@@ -104,8 +101,10 @@ function mostrarSalas(salas) {
 
         salaDiv.addEventListener('click', () => {
             clickSala(id); // Llamar a la función para mostrar las sillas
+            // console.log(sala.descripcion)
+            document.querySelector("#descripcion").innerHTML = sala.descripcion;
+            document.querySelector("#salaName").innerHTML = sala.nombre;
             // mostrar la descripcion de la sala
-            document.querySelector('#descripcion').textContent = sala.descripcion;
         });
     });
 }
@@ -120,26 +119,6 @@ function clickSala(id) {
 }
 
 // BORRAR UNA SALA
-/* function borrarSala(id) {
-
-
-    fetch("/deletesala", {
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json',
-            'X-CSRF-TOKEN': csrf
-        },
-        body: JSON.stringify({ id : id })
-    })
-        .then((respuesta) => {
-            console.log(respuesta)
-            respuesta.json()
-        })
-
-        .catch(error => console.error('Error al borrar la sala:', error));
-} */
-
-// ELIMINAR SALA
 function deleteSala(id) {
     fetch('/deletesala', {
         method: 'POST',
@@ -171,27 +150,26 @@ function deleteAsiento(id, sala_id) {
 function mostrarSillas(sillas, salaId) {
     const pelisDiv = document.querySelector('#pelis');
     clearElement(pelisDiv);
-
-    let contador = 0;
-
+    cont_ocupados = 0;
+    document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + cont_ocupados;
     sillas.forEach(silla => {
-        contador++;
         const { id, ocupada } = silla;
-
+        // document.querySelector('#ocupados').innerHTML ="Asientos ocupados: " +cont_ocupados;
         // <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
         //                     <img src="img/ocupado1.png" alt="Asiento ocupado">
         //                     <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
         //                 </button>
-
+        if (ocupada == 1) cont_ocupados++;
+        document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + cont_ocupados;
         let sillaDiv = document.createElement('button');
-        sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-primary', 'm-1');
+        sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-light', 'm-1');
         let img = document.createElement('img');
         img.src = (ocupada == 1)? "img/ocupado1.png" : "img/libre1.png";
         img.alt = (ocupada == 1)? "Asiento ocupado" : "Asiento libre";
         sillaDiv.appendChild(img);
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'X';
-        deleteBtn.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex');
+        deleteBtn.classList.add('btn', 'btn-light', 'bg-danger', 'border-3', 'border-danger', 'text-danger', 'm-1','justify-content-center','d-flex','text-white');
         sillaDiv.appendChild(deleteBtn);
 
         pelisDiv.appendChild(sillaDiv);
