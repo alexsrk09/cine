@@ -27,6 +27,7 @@ Route::post('/deletesala', [SalaController::class, 'delete']);
 Route::post('/deletesilla', [SillaController::class, 'delete']);
 Route::get('/getallsalas', [SalaController::class, 'getAll']);
 Route::get('getsillas/{id}', [SillaController::class, 'getSillas']);
+Route::get('/notocar', function () {return view('/notocar');});
 Route::get('/prueba', function () {return view('/prueba');});
 Route::get('/prueba2', function () {return view('/prueba2');});
 Route::get('/prueba4', function () {return view('/prueba4');});
