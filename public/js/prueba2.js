@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let salaId = null
-let okupados = 0
+let cont_ocupados = 0
 // CREAR SALA
 function crearSala() {
     fetch("/createsala", {
@@ -28,11 +28,7 @@ function crearSala() {
     })
         .then((respuesta) => {
             console.log(respuesta)
-            respuesta.json()
-        })
-        .then((resultado) => {
-            console.log(resultado)
-            actualizarSalas()
+            respuesta.json() // respuesat de la api ERROR (500) O NO la guarda en la bd y devuelve el mismoonjeto
         })
         .then(() => actualizarSalas())
         .catch(error => console.error('Error al crear la sala:', error));
@@ -173,17 +169,17 @@ function deleteAsiento(id, sala_id) {
 function mostrarSillas(sillas, salaId) {
     const pelisDiv = document.querySelector('#pelis');
     clearElement(pelisDiv);
-    okupados = 0;
-    document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + okupados;
+    cont_ocupados = 0;
+    document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + cont_ocupados;
     sillas.forEach(silla => {
         const { id, ocupada } = silla;
-        // document.querySelector('#ocupados').innerHTML ="Asientos ocupados: " +okupados;
+        // document.querySelector('#ocupados').innerHTML ="Asientos ocupados: " +cont_ocupados;
         // <button class="btn btn-light bg-transparent border-3 border-primary m-1 boton_silla">
         //                     <img src="img/ocupado1.png" alt="Asiento ocupado">
         //                     <button class="btn btn-light bg-transparent border-3 border-danger text-danger m-1">X</button>
         //                 </button>
-        if (ocupada == 1) okupados++;
-        document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + okupados;
+        if (ocupada == 1) cont_ocupados++;
+        document.querySelector('#ocupados').innerHTML = "Asientos ocupados: " + cont_ocupados;
         let sillaDiv = document.createElement('button');
         sillaDiv.classList.add('btn', 'btn-light', 'bg-transparent', 'border-3', 'border-light', 'm-1');
         let img = document.createElement('img');
