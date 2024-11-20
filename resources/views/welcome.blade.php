@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
-            --var-primary: url('img/cine7.png');
+            --imagenFondo: url('img/cine7.png');
             --colorFondoHeader-Footer: #445899;
             --colorFondoSection1-2: #00000086;
             --colorBtnCrear: #162849;
@@ -26,10 +26,9 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-image: var(--var-primary);
+            background-image: var(--imagenFondo);
             background-position: center;
             background-size: cover;
-            background-attachment: fixed;
             display: flex;
             flex-direction: column;
         }
@@ -82,7 +81,6 @@
         footer {
             background-color: var(--colorFondoHeader-Footer);
             padding: 1rem;
-            flex-shrink: 0;
         }
 
 
@@ -173,7 +171,7 @@
     </header>
 
     <main>
-        <!-- SALAS -->
+        <!-- SALAS --> 
         <section class="tamano m-3">
             <h5 class="mb-3 text-white text-center fw-bold">Gestionar Salas</h5>
             <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-2"
@@ -221,12 +219,9 @@
             </div>
             <div class="col-12 col-md-4 mb-3">
                 <ul class="list-unstyled d-flex justify-content-center mb-0">
-                    <li class="me-3"><a class="text-white" href="https://x.com/"><i class="bi bi-twitter"></i>
-                            Twitter</a></li>
-                    <li class="me-3"><a class="text-white" href="https://www.instagram.com/"><i
-                                class="bi bi-instagram"></i> Instagram</a></li>
-                    <li><a class="text-white" href="https://www.facebook.com/"><i class="bi bi-facebook"></i>
-                            Facebook</a></li>
+                    <li class="me-3"><a class="text-white" href="https://x.com/">Twitter</a></li>
+                    <li class="me-3"><a class="text-white" href="https://www.instagram.com/">Instagram</a></li>
+                    <li><a class="text-white" href="https://www.facebook.com/">Facebook</a></li>
                 </ul>
             </div>
             <div class="col-12 col-md-4 text-center text-md-end">
