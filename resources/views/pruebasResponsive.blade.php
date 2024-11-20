@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Medac</title>
     <link rel="shortcut icon" href="img/dorado.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         :root {
             --var-primary: url('img/cine7.png');
@@ -17,21 +17,20 @@
             --colorTitulo: #caccff;
         }
 
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
             font-family: Arial, sans-serif;
             background-image: var(--var-primary);
             background-position: center;
             background-size: cover;
             background-attachment: fixed;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+
+        header {
+            padding: 1rem 0;
+            /* background-color: var(--colorFondoHeader-Footer); */
         }
 
         main {
@@ -40,8 +39,6 @@
             flex-wrap: wrap;
             gap: 1rem;
             padding: 1rem;
-            overflow: hidden;
-            /* Evita desbordamiento del contenido principal */
         }
 
         section {
@@ -49,40 +46,34 @@
             border: 3px solid var(--var-primary);
             border-radius: 10px;
             overflow: auto;
-            /* Habilita scroll si es necesario */
+        }
+        section:nth-child(1) {
+            flex: 1;
+            /* Ancho igual para las secciones laterales */
+            /* background-color: #e5edf1b4; */
+            border-radius: 10px;
+            background-color: var(--colorFondoSection1-2);
         }
 
-        section:nth-child(1){
-            flex: 1;
-            background-color: var(--colorFondoSection1-2);
-            overflow-y: auto;
-            
-            height: 90%;
-        }
+        /* primer section */
         section:nth-child(3) {
+
+            /* tercer section */
+
             flex: 1;
             background-color: var(--colorFondoSection3);
-            overflow-y: auto;
-            
-            height: 90%;
+
+            /* Ancho igual para las secciones laterales */
         }
 
         section:nth-child(2) {
+
+            /* tercero section */
             flex: 2;
             min-width: 300px;
             background-color: var(--colorFondoSection1-2);
-            overflow-y: auto;
-            /* Habilita scroll vertical */
-            
-            height: 90%;
-            /* Ajusta el tamaño máximo restando el espacio del header y footer */
-        }
-
-        /* Asegura que el footer no cubra contenido */
-        footer {
-            background-color: var(--colorFondoHeader-Footer);
-            padding: 1rem;
-            flex-shrink: 0;
+            /* Doble ancho para la sección central */
+            /* background-color: #95c1dbb4; */
         }
 
 
@@ -90,7 +81,7 @@
             color: var(--colorTitulo);
         }
 
-        .tamano {
+        .tamano{
             max-width: fit-content;
         }
 
@@ -147,17 +138,13 @@
             width: 40px;
             height: auto;
         }
-        #pelis {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+
         @media (max-width: 768px) {
             main {
                 flex-direction: column;
             }
 
-            .sidebar,.content,.movie-info {
+            .sidebar, .content, .movie-info {
                 width: 100%;
             }
         }
@@ -165,7 +152,7 @@
 </head>
 
 <body>
-    <!-- HEADER -->
+        <!-- HEADER -->
     <header class="text-center text-white">
         <div class="container">
             <h1 class="fw-bold colorTit"><em>Cine Medac</em></h1>
@@ -176,8 +163,7 @@
         <!-- SALAS -->
         <section class="tamano m-3">
             <h5 class="mb-3 text-white text-center fw-bold">Gestionar Salas</h5>
-            <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-2"
-                id="crearSala">Crear Sala</button>
+            <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-2" id="crearSala">Crear Sala</button>
             <hr class="text-danger border-3">
             <div id="salas">
                 {{-- <div class="sala-btn-group">
@@ -190,8 +176,7 @@
         <!-- ASIENTOS -->
         <section class="m-3">
             <h5 class="text-white text-center fw-bold">Elección de asientos</h5>
-            <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-3"
-                id="crearAsiento">Crear Asiento</button>
+            <button class="btn btn-light border border-3 border-dark text-light fw-bold rounded-pill btn-custom mb-3" id="crearAsiento">Crear Asiento</button>
             <p class="text-white" id="ocupados"></p>
 
             <hr class="text-danger border-3">
@@ -213,31 +198,26 @@
             <p class="text-white" id="descripcion"></p>
         </section>
     </main>
-    <!-- FOOTER -->
+        <!-- FOOTER -->
     <footer class="text-white">
-        <div class="row align-items-center">
-            <div class="col-12 col-md-4 mb-3">
-                <span>&copy; 2024 Cine Medac</span>
+            <div class="row align-items-center">
+                <div class="col-12 col-md-4 mb-3">
+                    <span>&copy; 2024 Cine Medac</span>
+                </div>
+                <div class="col-12 col-md-4 mb-3">
+                    <ul class="list-unstyled d-flex justify-content-center mb-0">
+                        <li class="me-3"><a class="text-white" href="https://x.com/"><i class="bi bi-twitter"></i> Twitter</a></li>
+                        <li class="me-3"><a class="text-white" href="https://www.instagram.com/"><i class="bi bi-instagram"></i> Instagram</a></li>
+                        <li><a class="text-white" href="https://www.facebook.com/"><i class="bi bi-facebook"></i> Facebook</a></li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <img class="logo" src="img/dorado.png" alt="Logo Cine">
+                </div>
             </div>
-            <div class="col-12 col-md-4 mb-3">
-                <ul class="list-unstyled d-flex justify-content-center mb-0">
-                    <li class="me-3"><a class="text-white" href="https://x.com/"><i class="bi bi-twitter"></i>
-                            Twitter</a></li>
-                    <li class="me-3"><a class="text-white" href="https://www.instagram.com/"><i
-                                class="bi bi-instagram"></i> Instagram</a></li>
-                    <li><a class="text-white" href="https://www.facebook.com/"><i class="bi bi-facebook"></i>
-                            Facebook</a></li>
-                </ul>
-            </div>
-            <div class="col-12 col-md-4 text-center text-md-end">
-                <img class="logo" src="img/dorado.png" alt="Logo Cine">
-            </div>
-        </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="js/prueba2.js"></script>
 </body>
 
